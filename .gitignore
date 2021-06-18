@@ -1,5 +1,5 @@
-
-# Project-specific files
+# Explicit folders (ILNInteractive Project)
+ILNumerics_deploy
 /*.nupkg
 
 # User-specific files

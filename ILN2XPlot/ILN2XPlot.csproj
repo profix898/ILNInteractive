@@ -1,15 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <Description>Export functionality for ILNumerics (http://ilnumerics.net/) scene graphs and plot cubes to XPlot (cross-platform data visualization package)</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ILNumerics.Computing" Version="6.0.23-alpha23" />
-    <PackageReference Include="ILNumerics.Core" Version="6.0.23-alpha23" />
-    <PackageReference Include="ILNumerics.Drawing" Version="6.0.23-alpha23" />
-    <PackageReference Include="ILNumerics.Toolboxes.Drawing2" Version="6.0.23-alpha23" />
+    <PackageReference Include="ILNumerics.Computing" Version="6.0.34-alpha72" />
+    <PackageReference Include="ILNumerics.Core" Version="6.0.34-alpha72" />
+    <PackageReference Include="ILNumerics.Drawing" Version="6.0.34-alpha72" />
     <PackageReference Include="XPlot.Plotly" Version="4.0.2" />
   </ItemGroup>
   
