@@ -1,21 +1,31 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-	<!--<EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>-->
-    <Description>Support for ILNumerics (http://ilnumerics.net/) in dotNet Interactive</Description>
+	<Description>Support for ILNumerics (http://ilnumerics.net/) in dotNet Interactive</Description>
     <PackageType>InteractiveExtensions</PackageType>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.DotNet.Interactive.CSharp" Version="1.0.0-beta.21181.2" />
-    <PackageReference Include="ILNumerics.Computing" Version="6.0.23-alpha23" />
-    <PackageReference Include="ILNumerics.Core" Version="6.0.23-alpha23" />
+    <PackageReference Include="ILNumerics.Computing" Version="6.0.34-alpha72" />
+    <PackageReference Include="ILNumerics.Core" Version="6.0.34-alpha72" />
+    <PackageReference Include="ILNumerics.Drawing" Version="6.0.34-alpha72" />
     <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="bin\**" />
+    <EmbeddedResource Remove="bin\**" />
+    <None Remove="bin\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="$(OutputPath)/ILNInteractive.dll" Pack="true" PackagePath="interactive-extensions/dotnet" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ILN2XPlot\ILN2XPlot.csproj" />
   </ItemGroup>
 
 </Project>

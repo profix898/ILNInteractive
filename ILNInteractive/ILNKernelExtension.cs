@@ -1,5 +1,7 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using ILNInteractive.Formatters;
+using ILNumerics;
+using ILNumerics.Drawing;
 using Microsoft.DotNet.Interactive;
 using Microsoft.DotNet.Interactive.Formatting;
 using static Microsoft.DotNet.Interactive.Formatting.PocketViewTags;
@@ -12,7 +14,15 @@ namespace ILNInteractive
 
         public Task OnLoadAsync(Kernel kernel)
         {
-            Formatter.Register<DateTime>((date, writer) => { writer.Write(HtmlImage.DrawNotImplemented()); }, "text/html");
+            // Arrays
+            Formatter.SetPreferredMimeTypeFor(typeof(Array<>), "text/html");
+            Formatter.Register(new HtmlArrayFormatter());
+            Formatter.SetPreferredMimeTypeFor(typeof(RetArray<>), "text/html");
+            Formatter.Register(new HtmlRetArrayFormatter());
+
+            // SceneGraph
+            Formatter.SetPreferredMimeTypeFor(typeof(Scene), "text/html");
+            Formatter.Register(new HtmlSceneFormatter());
 
             if (KernelInvocationContext.Current is { } context)
             {
