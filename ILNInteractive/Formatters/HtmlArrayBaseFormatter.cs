@@ -1,32 +1,12 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using ILNumerics;
 using Microsoft.DotNet.Interactive.Formatting;
 
 namespace ILNInteractive.Formatters
 {
-    public abstract class HtmlArrayBaseFormatter
+    public abstract class HtmlArrayFormatterBase
     {
-        #region ITypeFormatter Members
-
-        public string MimeType => "text/html";
-
-        public abstract Type Type {get; }
-
-        public bool Format(FormatContext context, object instance, TextWriter writer)
-        {
-            var baseArray = instance as BaseArray;
-            if (baseArray == null)
-                return false;
-
-            FormatTable(context, baseArray, writer);
-
-            return true;
-        }
-
-        #endregion
-
-        private void FormatTable(FormatContext context, BaseArray array, TextWriter writer)
+        protected void FormatTable(FormatContext context, BaseArray array, TextWriter writer)
         {
             writer.Write(array.ShortInfo());
 
