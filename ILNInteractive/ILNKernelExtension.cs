@@ -15,14 +15,14 @@ namespace ILNInteractive
         public Task OnLoadAsync(Kernel kernel)
         {
             // Arrays
-            Formatter.SetPreferredMimeTypeFor(typeof(Array<>), "text/html");
-            Formatter.Register(new HtmlArrayFormatter());
-            Formatter.SetPreferredMimeTypeFor(typeof(RetArray<>), "text/html");
-            Formatter.Register(new HtmlRetArrayFormatter());
+            //Formatter.SetPreferredMimeTypeFor(typeof(Array<>), "text/html");
+            //Formatter.Register(new HtmlArrayFormatter());
+            //Formatter.SetPreferredMimeTypeFor(typeof(RetArray<>), "text/html");
+            //Formatter.Register(new HtmlRetArrayFormatter());
 
-            // SceneGraph
-            Formatter.SetPreferredMimeTypeFor(typeof(Scene), "text/html");
-            Formatter.Register(new HtmlSceneFormatter());
+            //// SceneGraph
+            //Formatter.SetPreferredMimeTypeFor(typeof(Scene), "text/html");
+            //Formatter.Register(new HtmlSceneFormatter());
 
             if (KernelInvocationContext.Current is { } context)
             {

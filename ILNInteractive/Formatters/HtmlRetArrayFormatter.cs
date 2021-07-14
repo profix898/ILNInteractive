@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using ILNumerics;
 using Microsoft.DotNet.Interactive.Formatting;
 
@@ -11,15 +10,15 @@ namespace ILNInteractive.Formatters
 
         public string MimeType => "text/html";
 
-        public Type Type => typeof(RetArray<>);
+        public Type Type => typeof(RetArray<double>);
 
-        public bool Format(FormatContext context, object instance, TextWriter writer)
+        public bool Format(object instance, FormatContext context)
         {
             var baseArray = instance as BaseArray;
             if (baseArray == null)
                 return false;
 
-            FormatTable(context, baseArray, writer);
+            FormatTable(context, baseArray, context.Writer);
 
             return true;
         }

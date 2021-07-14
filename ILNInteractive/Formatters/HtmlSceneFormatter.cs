@@ -14,7 +14,7 @@ namespace ILNInteractive.Formatters
 
         public Type Type => typeof(Scene);
 
-        public bool Format(FormatContext context, object instance, TextWriter writer)
+        public bool Format(object instance, FormatContext context)
         {
             Scene scene = instance as Scene;
             if (scene == null)
@@ -23,10 +23,10 @@ namespace ILNInteractive.Formatters
             switch (ILNInteractiveOptions.GraphMode)
             {
                 case ILNGraphMode.SVG:
-                    RenderSVG(context, scene, writer);
+                    RenderSVG(context, scene);
                     break;
                 case ILNGraphMode.XPlot:
-                    RenderXPlot(context, scene, writer);
+                    RenderXPlot(context, scene);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -35,7 +35,7 @@ namespace ILNInteractive.Formatters
             return true;
         }
 
-        private void RenderSVG(FormatContext context, Scene scene, TextWriter writer)
+        private void RenderSVG(FormatContext context, Scene scene)
         {
             using (var memoryStream = new MemoryStream())
             {
@@ -43,15 +43,15 @@ namespace ILNInteractive.Formatters
                 new SVGDriver(memoryStream, ILNInteractiveOptions.GraphSize.X, ILNInteractiveOptions.GraphSize.Y, scene).Render();
 
                 // Embed as HTML content
-                writer.Write(HtmlContentUtility.WriteSVG(memoryStream.ToArray()));
+                context.Writer.Write(HtmlContentUtility.WriteSVG(memoryStream.ToArray()));
             }
         }
 
-        private void RenderXPlot(FormatContext context, Scene scene, TextWriter writer)
+        private void RenderXPlot(FormatContext context, Scene scene)
         {
             PlotlyChart plotlyChart = ILN2XPlotExport.Bind(scene);
 
-            plotlyChart.FormatTo(context, writer, MimeType);
+            plotlyChart.FormatTo(context, MimeType);
         }
     }
 }
