@@ -64,12 +64,12 @@ namespace ILN2XPlot.Generator.Elements
             
             // Map plots (LinePlot, Surface, etc.)
             // LinePlots
-            foreach (var linePlot in group.Find<LinePlot>())
+            foreach (var linePlot in plotCube.Find<LinePlot>())
                 linePlot.Bind<LinePlotBinder>(traces, labels, layout);
 
-            // SurfacePlots
-            foreach (var surface in group.Find<ILNumerics.Drawing.Plotting.Surface>())
-                surface.Bind<SurfaceBinder>(traces, labels, layout);
+            //// SurfacePlots
+            //foreach (var surface in plotCube.Find<ILNumerics.Drawing.Plotting.Surface>())
+            //    surface.Bind<SurfaceBinder>(traces, labels, layout);
         }
     }
 }

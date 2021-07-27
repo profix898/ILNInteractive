@@ -22,8 +22,9 @@ namespace ILN2XPlot.Generator.Elements
                 return;
 
             var scatter = new Scatter();
-            scatter.x = linePlot.Positions[0, Globals.full].ToArray();
-            scatter.y = linePlot.Positions[1, Globals.full].ToArray();
+            scatter.mode = "lines";
+            scatter.x = ILMath.linspace(0, 99, 100).ToArray(); // linePlot.Positions[0, Globals.full].ToArray();
+            scatter.y = ILMath.randn(100, 1).ToArray(); // linePlot.Positions[1, Globals.full].ToArray();
 
             // Line
             scatter.line = new Line
@@ -40,13 +41,7 @@ namespace ILN2XPlot.Generator.Elements
             //    color = (linePlot.Marker.Fill.Color ?? linePlot.Line.Color ?? Color.Black).FormatXPlotColor()
             //};
 
-            //// LegendEntry
-            //var legend = linePlot.FirstUp<PlotCube>().First<Legend>();
-            //if (legend != null)
-            //    scatter.name = legend.Find<LegendItem>().FirstOrDefault(legendItem => legendItem.ProviderID == linePlot.ID)?.Text;
-
-            traces.Add(scatter);
-        }
+                scatter.name = legend.Find<LegendItem>().FirstOrDefault(legendItem => legendItem.ProviderID == linePlot.ID)?.Text;        }
 
         #endregion
     }
