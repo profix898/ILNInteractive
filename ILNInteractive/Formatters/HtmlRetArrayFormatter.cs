@@ -8,7 +8,7 @@ namespace ILNInteractive.Formatters
     {
         #region ITypeFormatter Members
 
-        public string MimeType => "text/html";
+        public string MimeType => HtmlFormatter.MimeType;
 
         public Type Type => typeof(RetArray<>);
 
