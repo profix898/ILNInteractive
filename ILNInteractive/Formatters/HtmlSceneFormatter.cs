@@ -10,7 +10,7 @@ namespace ILNInteractive.Formatters
 {
     public class HtmlSceneFormatter : ITypeFormatter
     {
-        public string MimeType => "text/html";
+        public string MimeType => HtmlFormatter.MimeType;
 
         public Type Type => typeof(Scene);
 

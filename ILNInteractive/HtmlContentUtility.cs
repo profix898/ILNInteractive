@@ -26,6 +26,13 @@ namespace ILNInteractive
             return div[id: GetId("svg-")](new HtmlString(svgContent));
         }
 
+        public static IHtmlContent WritePNG(byte[] pngBytes, int width, int height)
+        {
+            var imageSource = $"data:image/png;base64, {Convert.ToBase64String(pngBytes)}";
+
+            return img[src: imageSource, width: width, height: height]();
+        }
+
         #region Private
 
         private static string GetId(string type)
