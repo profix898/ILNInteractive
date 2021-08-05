@@ -16,29 +16,29 @@ namespace ILN2XPlot.Generator.Elements
 
             // TODO: Font: Family, Size, Bold/Italic, Color
 
-            // Global
-            var title = group.First<Title>();
-            layout.title = title?.Label?.Text ?? String.Empty;
+            //// Global
+            //var title = group.First<Title>();
+            //layout.title = title?.Label?.Text ?? String.Empty;
 
-            // XAxis
-            layout.xaxis.title = plotCube.Axes.XAxis.Label.Text;
-            layout.xaxis.type = (plotCube.ScaleModes.XAxisScale == AxisScale.Linear) ? "linear" : "log";
-            var xMin = plotCube.Axes.XAxis.Min ?? plotCube.Plots.Limits.XMin;
-            var xMax = plotCube.Axes.XAxis.Max ?? plotCube.Plots.Limits.XMax;
-            layout.xaxis.range = (plotCube.ScaleModes.XAxisScale == AxisScale.Linear) ? $"{xMin}:{xMax}" : $"{Math.Pow(10.0, xMin)}:{Math.Pow(10.0, xMax)}";
-            layout.xaxis.showgrid = plotCube.Axes.XAxis.GridMajor.Visible;
-            layout.xaxis.gridcolor = (plotCube.Axes.XAxis.GridMajor.Color ?? Color.FromArgb(230, 230, 230)).FormatXPlotColor();
-            layout.xaxis.gridwidth = plotCube.Axes.XAxis.GridMajor.Width;
+            //// XAxis
+            //layout.xaxis.title = plotCube.Axes.XAxis.Label.Text;
+            //layout.xaxis.type = (plotCube.ScaleModes.XAxisScale == AxisScale.Linear) ? "linear" : "log";
+            //var xMin = plotCube.Axes.XAxis.Min ?? plotCube.Plots.Limits.XMin;
+            //var xMax = plotCube.Axes.XAxis.Max ?? plotCube.Plots.Limits.XMax;
+            //layout.xaxis.range = (plotCube.ScaleModes.XAxisScale == AxisScale.Linear) ? $"{xMin}:{xMax}" : $"{Math.Pow(10.0, xMin)}:{Math.Pow(10.0, xMax)}";
+            //layout.xaxis.showgrid = plotCube.Axes.XAxis.GridMajor.Visible;
+            //layout.xaxis.gridcolor = (plotCube.Axes.XAxis.GridMajor.Color ?? Color.FromArgb(230, 230, 230)).FormatXPlotColor();
+            //layout.xaxis.gridwidth = plotCube.Axes.XAxis.GridMajor.Width;
 
-            // YAxis
-            layout.yaxis.title = plotCube.Axes.YAxis.Label.Text;
-            layout.yaxis.type = (plotCube.ScaleModes.YAxisScale == AxisScale.Linear) ? "linear" : "log";
-            var yMin = plotCube.Axes.YAxis.Min ?? plotCube.Plots.Limits.XMin;
-            var yMax = plotCube.Axes.YAxis.Max ?? plotCube.Plots.Limits.XMax;
-            layout.yaxis.range = (plotCube.ScaleModes.YAxisScale == AxisScale.Linear) ? $"{yMin}:{yMax}" : $"{Math.Pow(10.0, yMin)}:{Math.Pow(10.0, yMax)}";
-            layout.yaxis.showgrid = plotCube.Axes.YAxis.GridMajor.Visible;
-            layout.yaxis.gridcolor = (plotCube.Axes.YAxis.GridMajor.Color ?? Color.FromArgb(230, 230, 230)).FormatXPlotColor();
-            layout.yaxis.gridwidth = plotCube.Axes.YAxis.GridMajor.Width;
+            //// YAxis
+            //layout.yaxis.title = plotCube.Axes.YAxis.Label.Text;
+            //layout.yaxis.type = (plotCube.ScaleModes.YAxisScale == AxisScale.Linear) ? "linear" : "log";
+            //var yMin = plotCube.Axes.YAxis.Min ?? plotCube.Plots.Limits.XMin;
+            //var yMax = plotCube.Axes.YAxis.Max ?? plotCube.Plots.Limits.XMax;
+            //layout.yaxis.range = (plotCube.ScaleModes.YAxisScale == AxisScale.Linear) ? $"{yMin}:{yMax}" : $"{Math.Pow(10.0, yMin)}:{Math.Pow(10.0, yMax)}";
+            //layout.yaxis.showgrid = plotCube.Axes.YAxis.GridMajor.Visible;
+            //layout.yaxis.gridcolor = (plotCube.Axes.YAxis.GridMajor.Color ?? Color.FromArgb(230, 230, 230)).FormatXPlotColor();
+            //layout.yaxis.gridwidth = plotCube.Axes.YAxis.GridMajor.Width;
             
             //// ZAxis
             //layout.zaxis.title = plotCube.Axes.ZAxis.Label.Text;

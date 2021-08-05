@@ -10,17 +10,21 @@ namespace ILNInteractive.Formatters
 
         public string MimeType => "text/html";
 
-        public Type Type => typeof(Array<double>);
+        public Type Type => typeof(Array<>);
 
         public bool Format(object instance, FormatContext context)
         {
-            var baseArray = instance as BaseArray;
-            if (baseArray == null)
-                return false;
-
-            FormatTable(context, baseArray, context.Writer);
-
-            return true;
+            switch (instance)
+            {
+                case Array<double> doubleArray:
+                    FormatTable(context, (Array<double>) ILMath.squeeze(doubleArray), context.Writer);
+                    return true;
+                case Array<float> floatArray:
+                    FormatTable(context, (Array<float>) ILMath.squeeze(floatArray), context.Writer);
+                    return true;
+                default:
+                    return false;
+            }
         }
 
         #endregion

@@ -7,5 +7,7 @@ namespace ILNInteractive
         public static ILNGraphMode GraphMode { get; set; } = ILNGraphMode.SVG;
 
         public static Point GraphSize { get; set; } = new Point(600, 400);
+
+
     }
 }

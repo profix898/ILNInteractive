@@ -6,10 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ILNumerics.Computing" Version="6.0.43-beta01" />
-    <PackageReference Include="ILNumerics.Core" Version="6.0.43-beta01" />
-    <PackageReference Include="ILNumerics.Drawing" Version="6.0.43-beta01" />
+    <PackageReference Include="ILNumerics.Computing" Version="6.0.68-beta04" />
+    <PackageReference Include="ILNumerics.Core" Version="6.0.68-beta04" />
+    <PackageReference Include="ILNumerics.Drawing" Version="6.0.68-beta04" />
     <PackageReference Include="XPlot.Plotly" Version="4.0.3" />
+    <PackageReference Include="XPlot.Plotly.Interactive" Version="4.0.3" />
   </ItemGroup>
   
 </Project>
