@@ -33,17 +33,19 @@ namespace ILN2XPlot.Generator.Elements
                 //dash = linePlot.Line.DashStyle
             };
 
-            // Marker
-            scatter.marker = new Marker
-            {
-                size = Math.Max(linePlot.Marker.Size / 2, 1),
-                color = (linePlot.Marker.Fill.Color ?? linePlot.Line.Color ?? Color.Black).FormatXPlotColor()
-            };
+            //// Marker
+            //scatter.marker = new Marker
+            //{
+            //    size = Math.Max(linePlot.Marker.Size / 2, 1),
+            //    color = (linePlot.Marker.Fill.Color ?? linePlot.Line.Color ?? Color.Black).FormatXPlotColor()
+            //};
 
-            // LegendEntry
-            var legend = linePlot.FirstUp<PlotCube>().First<Legend>();
-            if (legend != null)
-                scatter.name = legend.Find<LegendItem>().FirstOrDefault(legendItem => legendItem.ProviderID == linePlot.ID)?.Text;
+            //// LegendEntry
+            //var legend = linePlot.FirstUp<PlotCube>().First<Legend>();
+            //if (legend != null)
+            //    scatter.name = legend.Find<LegendItem>().FirstOrDefault(legendItem => legendItem.ProviderID == linePlot.ID)?.Text;
+
+            traces.Add(scatter);
         }
 
         #endregion

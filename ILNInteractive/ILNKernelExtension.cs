@@ -19,6 +19,12 @@ namespace ILNInteractive
             Formatter.Register(new HtmlArrayFormatter());
             Formatter.SetPreferredMimeTypeFor(typeof(RetArray<double>), "text/html");
             Formatter.Register(new HtmlRetArrayFormatter());
+            Formatter.SetPreferredMimeTypeFor(typeof(Array<float>), "text/html");
+            Formatter.SetPreferredMimeTypeFor(typeof(RetArray<float>), "text/html");
+            Formatter.SetPreferredMimeTypeFor(typeof(Array<long>), "text/html");
+            Formatter.SetPreferredMimeTypeFor(typeof(RetArray<long>), "text/html");
+            Formatter.SetPreferredMimeTypeFor(typeof(Array<bool>), "text/html");
+            Formatter.SetPreferredMimeTypeFor(typeof(RetArray<bool>), "text/html");
 
             // SceneGraph
             Formatter.SetPreferredMimeTypeFor(typeof(Scene), "text/html");
