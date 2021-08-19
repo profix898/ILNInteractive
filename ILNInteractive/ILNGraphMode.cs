@@ -2,7 +2,8 @@
 {
     public enum ILNGraphMode
     {
-        SVG,
-        XPlot
+        Png,
+        Svg,
+        XPlotPlotly
     }
 }

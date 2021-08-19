@@ -3,8 +3,8 @@ using System.IO;
 using ILN2XPlot;
 using ILNumerics.Drawing;
 using Microsoft.DotNet.Interactive.Formatting;
-using XPlot.Plotly;
 using Scene = ILNumerics.Drawing.Scene;
+using static ILNInteractive.HtmlContentUtility;
 
 namespace ILNInteractive.HtmlFormatters
 {
@@ -22,11 +22,14 @@ namespace ILNInteractive.HtmlFormatters
 
             switch (ILNInteractiveOptions.GraphMode)
             {
-                case ILNGraphMode.SVG:
-                    RenderSVG(context, scene);
+                case ILNGraphMode.Png:
+                    RenderPng(context, scene);
                     break;
-                case ILNGraphMode.XPlot:
-                    RenderXPlot(context, scene);
+                case ILNGraphMode.Svg:
+                    RenderSvg(context, scene);
+                    break;
+                case ILNGraphMode.XPlotPlotly:
+                    RenderXPlotPlotly(context, scene);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -35,25 +38,39 @@ namespace ILNInteractive.HtmlFormatters
             return true;
         }
 
-        private void RenderSVG(FormatContext context, Scene scene)
+        private void RenderPng(FormatContext context, Scene scene)
+        {
+            // Render bitmap
+            var graphSize = ILNInteractiveOptions.GraphSize;
+            var driver = new GDIDriver(graphSize.X, graphSize.Y, scene);
+            driver.Render();
+            driver.BackBuffer.Bitmap.SetResolution(300, 300);
+            var bitmap = driver.BackBuffer.Bitmap;
+
+            // Embed base64-encoded PNG as HTML content
+            context.Writer.Write(WritePNG(bitmap, graphSize.X, graphSize.Y));
+        }
+
+        private void RenderSvg(FormatContext context, Scene scene)
         {
             using (var memoryStream = new MemoryStream())
             {
                 // Render SVG into memory stream
-                new SVGDriver(memoryStream, ILNInteractiveOptions.GraphSize.X, ILNInteractiveOptions.GraphSize.Y, scene).Render();
+                var graphSize = ILNInteractiveOptions.GraphSize;
+                new SVGDriver(memoryStream, graphSize.X, graphSize.Y, scene).Render();
 
-                // Embed as HTML content
-                context.Writer.Write(HtmlContentUtility.WriteSVG(memoryStream.ToArray()));
+                // Embed SVG as HTML content
+                context.Writer.Write(WriteSVG(memoryStream.ToArray()));
             }
         }
 
-        private void RenderXPlot(FormatContext context, Scene scene)
+        private void RenderXPlotPlotly(FormatContext context, Scene scene)
         {
             var plotlyChart = ILN2XPlotExport.Export(scene);
             if (plotlyChart != null)
                 plotlyChart.FormatTo(context, MimeType);
             else
-                RenderSVG(context, scene); // Fallback to SVG output
+                RenderSvg(context, scene); // Fallback to SVG output
         }
     }
 }
