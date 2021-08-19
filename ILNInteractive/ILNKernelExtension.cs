@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Drawing;
+using System.Threading.Tasks;
 using ILNInteractive.HtmlFormatters;
 using ILNInteractive.PlainTextFormatters;
 using ILNumerics;
@@ -55,6 +56,8 @@ namespace ILNInteractive
             Formatter.Register(new HtmlRetArrayFormatter());
 
             // Formatters: SceneGraph
+            Formatter.SetPreferredMimeTypeFor(typeof(Bitmap), HtmlFormatter.MimeType);
+            Formatter.Register(new HtmlBitmapFormatter());
             Formatter.SetPreferredMimeTypeFor(typeof(Scene), HtmlFormatter.MimeType);
             Formatter.Register(new HtmlSceneFormatter());
 
