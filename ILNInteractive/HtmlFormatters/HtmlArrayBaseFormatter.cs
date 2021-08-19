@@ -13,6 +13,8 @@ namespace ILNInteractive.HtmlFormatters
     {
         protected void FormatTable<T>(FormatContext context, BaseArray<T> array, TextWriter writer)
         {
+            var maxElements = ILNInteractiveOptions.MaxArrayElements;
+
             // Warning: More than 2 dimensions
             if (array.S.NumberOfDimensions > 2)
                 writer.WriteLine(i($"Note: Array with {array.S.NumberOfDimensions} dimensions. Table shows first 2 dimensions. Use ILNumerics indexers to select elements, e.g. a[\":;:;1\"]."));
@@ -20,12 +22,11 @@ namespace ILNInteractive.HtmlFormatters
             // Build table header
             var headers = new List<IHtmlContent>();
             headers.Add(th(i("index")));
-            for (var i = 0; i < array.S[1]; i++)
+            for (var i = 0; i < Math.Min(maxElements, array.S[1]); i++)
                 headers.Add(th(i));
 
             // Build table body (rows/cols)
             var rows = new List<List<IHtmlContent>>();
-            var maxElements = ILNInteractiveOptions.MaxArrayElements;
             for (var i = 0; i < Math.Min(maxElements, array.S[0]); i++)
             {
                 var cells = new List<IHtmlContent>();
@@ -37,8 +38,13 @@ namespace ILNInteractive.HtmlFormatters
                 rows.Add(cells);
             }
 
-            writer.WriteLine(b($"Dims: {array.S[0]} x {array.S[1]} (ElementType: {array.GetElementType().FullName})"));
+            // Write table to output
+            writer.WriteLine($"Dims: {array.S[0]} x {array.S[1]} (ElementType: {array.GetElementType().FullName})");
             writer.Write(table(thead(headers), tbody(rows.Select(r => tr(r)))));
+
+            // Warning: Table truncated at MaxArrayElements
+            if (array.S[0] > maxElements || array.S[1] > maxElements)
+                writer.WriteLine(b($"Note: Table truncated at {maxElements} elements."));
         }
     }
 }
