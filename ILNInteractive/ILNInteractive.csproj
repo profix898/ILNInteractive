@@ -2,26 +2,35 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-	<Description>Support for ILNumerics (http://ilnumerics.net/) in dotNet Interactive</Description>
+    <Version>0.5.2</Version>
+    <FileVersion>$(Version)</FileVersion>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <Copyright>Copyright © 2020-2021 Thilo Viereck</Copyright>
+    <RepositoryUrl>https://github.com/profix898/ILNInteractive</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Authors>Thilo Viereck</Authors>
+    <Company />
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Support for ILNumerics (http://ilnumerics.net/) in dotNet Interactive</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageOutputPath>./../</PackageOutputPath>
     <PackageType>InteractiveExtensions</PackageType>
   </PropertyGroup>
 
   <ItemGroup>
-	<PackageReference Include="ILNumerics.Computing" Version="6.0.68-beta04" />
-    <PackageReference Include="ILNumerics.Core" Version="6.0.68-beta04" />
-    <PackageReference Include="ILNumerics.Drawing" Version="6.0.68-beta04" />
+	<PackageReference Include="ILNumerics.Computing" Version="6.0.86" />
+    <PackageReference Include="ILNumerics.Drawing" Version="6.0.86" />
+	<PackageReference Include="ILN2XPlot" Version="0.6.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.0.0-3.final" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.0.0-3.final" />
     <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
-	<PackageReference Include="Microsoft.DotNet.Interactive.CSharp" Version="1.0.0-beta.21357.1" />
-    <PackageReference Include="Microsoft.DotNet.Interactive.Formatting" Version="1.0.0-beta.21357.1" />
+	<PackageReference Include="Microsoft.DotNet.Interactive.CSharp" Version="1.0.0-beta.21404.3" />
+    <PackageReference Include="Microsoft.DotNet.Interactive.Formatting" Version="1.0.0-beta.21404.3" />
     <PackageReference Include="XPlot.Plotly.Interactive" Version="4.0.3" />
   </ItemGroup>
 	
   <ItemGroup>
     <None Include="$(OutputPath)/ILNInteractive.dll" Pack="true" PackagePath="interactive-extensions/dotnet" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ILN2XPlot\ILN2XPlot.csproj" />
   </ItemGroup>
 
 </Project>
