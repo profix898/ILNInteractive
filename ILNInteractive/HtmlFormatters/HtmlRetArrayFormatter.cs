@@ -1,6 +1,7 @@
 ﻿using System;
 using ILNumerics;
 using Microsoft.DotNet.Interactive.Formatting;
+using static ILNumerics.ILMath;
 
 namespace ILNInteractive.HtmlFormatters
 {
@@ -17,28 +18,28 @@ namespace ILNInteractive.HtmlFormatters
             switch (instance)
             {
                 case RetArray<sbyte> sbyteArray:
-                    FormatTable(context, (Array<sbyte>) ILMath.squeeze(sbyteArray), context.Writer);
+                    FormatTable(context, (Array<sbyte>) squeeze(sbyteArray), context.Writer);
                     return true;
                 case RetArray<short> shortArray:
-                    FormatTable(context, (Array<short>) ILMath.squeeze(shortArray), context.Writer);
+                    FormatTable(context, (Array<short>) squeeze(shortArray), context.Writer);
                     return true;
                 case RetArray<int> intArray:
-                    FormatTable(context, (Array<int>) ILMath.squeeze(intArray), context.Writer);
+                    FormatTable(context, (Array<int>) squeeze(intArray), context.Writer);
                     return true;
                 case RetArray<long> longArray:
-                    FormatTable(context, (Array<long>) ILMath.squeeze(longArray), context.Writer);
+                    FormatTable(context, (Array<long>) squeeze(longArray), context.Writer);
                     return true;
                 case RetArray<float> floatArray:
-                    FormatTable(context, (Array<float>) ILMath.squeeze(floatArray), context.Writer);
+                    FormatTable(context, (Array<float>) squeeze(floatArray), context.Writer);
                     return true;
                 case RetArray<double> doubleArray:
-                    FormatTable(context, (Array<double>) ILMath.squeeze(doubleArray), context.Writer);
+                    FormatTable(context, (Array<double>) squeeze(doubleArray), context.Writer);
                     return true;
                 case RetArray<fcomplex> fcomplexArray:
-                    FormatTable(context, (Array<fcomplex>) ILMath.squeeze(fcomplexArray), context.Writer);
+                    FormatTable(context, (Array<fcomplex>) squeeze(fcomplexArray), context.Writer);
                     return true;
                 case RetArray<complex> complexArray:
-                    FormatTable(context, (Array<complex>) ILMath.squeeze(complexArray), context.Writer);
+                    FormatTable(context, (Array<complex>) squeeze(complexArray), context.Writer);
                     return true;
                 default:
                     return false;
