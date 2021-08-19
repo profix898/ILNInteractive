@@ -8,6 +8,6 @@ namespace ILNInteractive
 
         public static Point GraphSize { get; set; } = new Point(600, 400);
 
-
+        public static int MaxArrayElements { get; set; } = 100;
     }
 }

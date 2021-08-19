@@ -6,7 +6,7 @@ using Microsoft.DotNet.Interactive.Formatting;
 using XPlot.Plotly;
 using Scene = ILNumerics.Drawing.Scene;
 
-namespace ILNInteractive.Formatters
+namespace ILNInteractive.HtmlFormatters
 {
     public class HtmlSceneFormatter : ITypeFormatter
     {
@@ -49,7 +49,7 @@ namespace ILNInteractive.Formatters
 
         private void RenderXPlot(FormatContext context, Scene scene)
         {
-            PlotlyChart plotlyChart = ILN2XPlotExport.Bind(scene);
+            PlotlyChart plotlyChart = ILN2XPlotExport.Export(scene);
 
             plotlyChart.FormatTo(context, MimeType);
         }
