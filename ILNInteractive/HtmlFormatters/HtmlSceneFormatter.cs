@@ -49,9 +49,11 @@ namespace ILNInteractive.HtmlFormatters
 
         private void RenderXPlot(FormatContext context, Scene scene)
         {
-            PlotlyChart plotlyChart = ILN2XPlotExport.Export(scene);
-
-            plotlyChart.FormatTo(context, MimeType);
+            var plotlyChart = ILN2XPlotExport.Export(scene);
+            if (plotlyChart != null)
+                plotlyChart.FormatTo(context, MimeType);
+            else
+                RenderSVG(context, scene); // Fallback to SVG output
         }
     }
 }

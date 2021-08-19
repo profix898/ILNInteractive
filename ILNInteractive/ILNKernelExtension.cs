@@ -22,6 +22,7 @@ namespace ILNInteractive
             await kernelCSharp.SubmitCodeAsync("using ILNumerics;");
             await kernelCSharp.SubmitCodeAsync("using ILNumerics.Drawing;");
             await kernelCSharp.SubmitCodeAsync("using ILNumerics.Drawing.Plotting;");
+            await kernelCSharp.SubmitCodeAsync("using System.Drawing;");
             await kernelCSharp.SubmitCodeAsync("using static ILNumerics.ILMath;");
             await kernelCSharp.SubmitCodeAsync("using static ILNumerics.Globals;");
 

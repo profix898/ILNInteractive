@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <Version>0.5.2</Version>
+    <Version>0.5.8</Version>
     <FileVersion>$(Version)</FileVersion>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <Copyright>Copyright © 2020-2021 Thilo Viereck</Copyright>
@@ -11,7 +11,7 @@
     <Authors>Thilo Viereck</Authors>
     <Company />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>Support for ILNumerics (http://ilnumerics.net/) in dotNet Interactive</Description>
+    <Description>Support for ILNumerics (http://ilnumerics.net/) in .NET Interactive</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageOutputPath>./../</PackageOutputPath>
     <PackageType>InteractiveExtensions</PackageType>
