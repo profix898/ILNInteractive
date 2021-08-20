@@ -26,6 +26,7 @@ namespace ILNInteractive
             await kernelCSharp.SubmitCodeAsync("using System.Drawing;");
             await kernelCSharp.SubmitCodeAsync("using static ILNumerics.ILMath;");
             await kernelCSharp.SubmitCodeAsync("using static ILNumerics.Globals;");
+            await kernelCSharp.SubmitCodeAsync("using static ILNInteractive.QuickPlot.QuickPlot;");
 
             // Formatter: (f)complex
             Formatter.SetPreferredMimeTypeFor(typeof(fcomplex), PlainTextFormatter.MimeType);
