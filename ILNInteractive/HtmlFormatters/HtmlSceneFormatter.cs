@@ -2,9 +2,11 @@
 using System.IO;
 using ILN2XPlot;
 using ILNumerics.Drawing;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.DotNet.Interactive.Formatting;
 using Scene = ILNumerics.Drawing.Scene;
 using static ILNInteractive.HtmlContentUtility;
+using static Microsoft.DotNet.Interactive.Formatting.PocketViewTags;
 
 namespace ILNInteractive.HtmlFormatters
 {
@@ -44,7 +46,7 @@ namespace ILNInteractive.HtmlFormatters
             var graphSize = ILNInteractiveOptions.GraphSize;
             var driver = new GDIDriver(graphSize.X, graphSize.Y, scene);
             driver.Render();
-            driver.BackBuffer.Bitmap.SetResolution(300, 300);
+            //driver.BackBuffer.Bitmap.SetResolution(300, 300);
             var bitmap = driver.BackBuffer.Bitmap;
 
             // Embed base64-encoded PNG as HTML content
@@ -59,8 +61,18 @@ namespace ILNInteractive.HtmlFormatters
                 var graphSize = ILNInteractiveOptions.GraphSize;
                 new SVGDriver(memoryStream, graphSize.X, graphSize.Y, scene).Render();
 
-                // Embed SVG as HTML content
-                context.Writer.Write(WriteSVG(memoryStream.ToArray()));
+                var svgBytes = memoryStream.ToArray();
+                if (svgBytes.Length <= ILNInteractiveOptions.GraphSvgSizeLimit)
+                {
+                    // Embed SVG as HTML content
+                    context.Writer.Write(WriteSVG(memoryStream.ToArray()));
+                }
+                else
+                {
+                    // Fallback to embedded bitmap (Png) if the SVG source size is too large (very slow rendering)
+                    RenderPng(context, scene);
+                    context.Writer.WriteLine(div(b($"Note: SVG output too large (> {ILNInteractiveOptions.GraphSvgSizeLimit / (1000 * 1000)} MBytes). Using bitmap (PNG) instead.")));
+                }
             }
         }
 
