@@ -4,10 +4,10 @@ using ILNInteractive.HtmlFormatters;
 using ILNInteractive.PlainTextFormatters;
 using ILNumerics;
 using ILNumerics.Drawing;
+using Microsoft.AspNetCore.Html;
 using Microsoft.DotNet.Interactive;
 using Microsoft.DotNet.Interactive.CSharp;
 using Microsoft.DotNet.Interactive.Formatting;
-using static Microsoft.DotNet.Interactive.Formatting.PocketViewTags;
 
 namespace ILNInteractive
 {
@@ -64,8 +64,15 @@ namespace ILNInteractive
 
             if (KernelInvocationContext.Current is { } context)
             {
-                PocketView view = div(code(nameof(ILNInteractive)), " extension is loaded. It adds math support and visualizations for ILNumerics projects.");
-                context.Display(view);
+                var message = new HtmlString("<hr>"
+                                             + "<u><b>Welcome to ILNInteractive!</b></u>"
+                                             + "<lu>"
+                                             + "<li><b>ILNInteractive</b> integrates <b>ILNumerics Ultimate VS</b> (<a href=\"https://ilnumerics.net/\">https://ilnumerics.net/</a>), which comes with its own license conditions.</li>"
+                                             + "<li>Development for <b>ILNInteractive</b> requires a valid license from <b>ILNumerics</b>.</li>"
+                                             + "<li>In the context of <b>ILNInteractive</b> and within <u>.NET Interactive</u> all features of <b>ILNumerics</b> can be used <i>free of charge</i> (incl. commercial use).</li>"
+                                             + "</lu>"
+                                             + "<hr>");
+                context.Display(message, HtmlFormatter.MimeType);
             }
         }
 

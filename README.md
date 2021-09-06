@@ -12,6 +12,10 @@ Open _[Demo.ipynb](https://raw.githubusercontent.com/profix898/ILNInteractive/ma
 ### License
 ILNInteractive is licensed under the terms of the MIT license (<https://opensource.org/licenses/MIT>, see LICENSE.txt).
 
+- ILNInteractive integrates ILNumerics Ultimate VS ([https://ilnumerics.net/](https://ilnumerics.net/)), which comes with its own license conditions.
+- Development for ILNInteractive requires a valid license from ILNumerics.
+- In the context of ILNInteractive and within .NET Interactive all features of ILNumerics can be used free of charge (incl. commercial use).
+
 ### Disclaimer
 ILNInteractive is in an early stage of development and should be
 considered experimental.
