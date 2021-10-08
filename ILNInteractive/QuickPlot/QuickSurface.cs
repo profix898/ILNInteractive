@@ -8,7 +8,8 @@ namespace ILNInteractive.QuickPlot
 {
     public static partial class QuickPlot
     {
-        public static Scene Surf(InArray<float> ZXYPositions, InArray<float> C = null)
+        public static Scene Surf(InArray<float> ZXYPositions, InArray<float> C = null,
+                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, AxisScale zAxisScale = AxisScale.Linear)
         {
             using (Scope.Enter(ZXYPositions))
             {
@@ -22,11 +23,17 @@ namespace ILNInteractive.QuickPlot
                 plotCube.Add(new Surface(ZXYPositions, C));
                 plotCube.Rotation = ILNInteractiveOptions.GraphSurfRotation;
 
+                // AxisScale
+                plotCube.ScaleModes.XAxisScale = xAxisScale;
+                plotCube.ScaleModes.YAxisScale = yAxisScale;
+                plotCube.ScaleModes.ZAxisScale = zAxisScale;
+
                 return scene;
             }
         }
 
-        public static Scene Surf(InArray<double> ZXYPositions, InArray<float> C = null)
+        public static Scene Surf(InArray<double> ZXYPositions, InArray<float> C = null,
+                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, AxisScale zAxisScale = AxisScale.Linear)
         {
             using (Scope.Enter(ZXYPositions, C))
             {
@@ -40,11 +47,16 @@ namespace ILNInteractive.QuickPlot
                 plotCube.Add(new Surface(tosingle(ZXYPositions), C));
                 plotCube.Rotation = ILNInteractiveOptions.GraphSurfRotation;
 
+                plotCube.ScaleModes.XAxisScale = xAxisScale;
+                plotCube.ScaleModes.YAxisScale = yAxisScale;
+                plotCube.ScaleModes.ZAxisScale = zAxisScale;
+
                 return scene;
             }
         }
 
-        public static Scene Surf(InArray<float> Z, InArray<float> X, InArray<float> Y, InArray<float> C = null)
+        public static Scene Surf(InArray<float> Z, InArray<float> X, InArray<float> Y, InArray<float> C = null,
+                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, AxisScale zAxisScale = AxisScale.Linear)
         {
             using (Scope.Enter(Z, X, Y, C))
             {
@@ -60,11 +72,16 @@ namespace ILNInteractive.QuickPlot
                 plotCube.Add(new Surface(Z, X, Y, C));
                 plotCube.Rotation = ILNInteractiveOptions.GraphSurfRotation;
 
+                plotCube.ScaleModes.XAxisScale = xAxisScale;
+                plotCube.ScaleModes.YAxisScale = yAxisScale;
+                plotCube.ScaleModes.ZAxisScale = zAxisScale;
+
                 return scene;
             }
         }
 
-        public static Scene Surf(InArray<double> Z, InArray<double> X, InArray<double> Y, InArray<float> C = null)
+        public static Scene Surf(InArray<double> Z, InArray<double> X, InArray<double> Y, InArray<float> C = null,
+                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, AxisScale zAxisScale = AxisScale.Linear)
         {
             using (Scope.Enter(Z, X, Y, C))
             {
@@ -80,23 +97,33 @@ namespace ILNInteractive.QuickPlot
                 plotCube.Add(new Surface(tosingle(Z), tosingle(X), tosingle(Y), C));
                 plotCube.Rotation = ILNInteractiveOptions.GraphSurfRotation;
 
+                plotCube.ScaleModes.XAxisScale = xAxisScale;
+                plotCube.ScaleModes.YAxisScale = yAxisScale;
+                plotCube.ScaleModes.ZAxisScale = zAxisScale;
+
                 return scene;
             }
         }
 
         public static Scene Surf(Func<float, float, float> ZFunc, float xmin = -10f, float xmax = 10f, int xlen = 50, float ymin = -10f, float ymax = 10f, int ylen = 50,
-                                 Func<float, float, float> CFunc = null)
+                                 Func<float, float, float> CFunc = null,
+                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, AxisScale zAxisScale = AxisScale.Linear)
         {
             var scene = new Scene();
             var plotCube = scene.Add(new PlotCube());
             plotCube.Add(new Surface(ZFunc, xmin, xmax, xlen, ymin, ymax, ylen, CFunc));
             plotCube.Rotation = ILNInteractiveOptions.GraphSurfRotation;
 
+            plotCube.ScaleModes.XAxisScale = xAxisScale;
+            plotCube.ScaleModes.YAxisScale = yAxisScale;
+            plotCube.ScaleModes.ZAxisScale = zAxisScale;
+
             return scene;
         }
 
         public static Scene Surf(Func<double, double, double> ZFunc, double xmin = -10d, double xmax = 10d, int xlen = 50, double ymin = -10d, double ymax = 10d, int ylen = 50,
-                                 Func<float, float, float> CFunc = null)
+                                 Func<float, float, float> CFunc = null,
+                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, AxisScale zAxisScale = AxisScale.Linear)
         {
             var scene = new Scene();
             var plotCube = scene.Add(new PlotCube());
@@ -104,6 +131,10 @@ namespace ILNInteractive.QuickPlot
             float ZFuncFloat(float x, float y) => (float) ZFunc(x, y);
             plotCube.Add(new Surface(ZFuncFloat, (float) xmin, (float) xmax, xlen, (float) ymin, (float) ymax, ylen, CFunc));
             plotCube.Rotation = ILNInteractiveOptions.GraphSurfRotation;
+
+            plotCube.ScaleModes.XAxisScale = xAxisScale;
+            plotCube.ScaleModes.YAxisScale = yAxisScale;
+            plotCube.ScaleModes.ZAxisScale = zAxisScale;
 
             return scene;
         }
