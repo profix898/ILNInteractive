@@ -29,37 +29,37 @@ namespace ILNInteractive
             await kernelCSharp.SubmitCodeAsync("using static ILNInteractive.QuickPlot.QuickPlot;");
 
             // Formatter: (f)complex
-            Formatter.SetPreferredMimeTypeFor(typeof(fcomplex), PlainTextFormatter.MimeType);
-            Formatter.SetPreferredMimeTypeFor(typeof(complex), PlainTextFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(fcomplex), PlainTextFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(complex), PlainTextFormatter.MimeType);
             Formatter.Register(new PlainTextFComplexFormatter());
             Formatter.Register(new PlainTextComplexFormatter());
 
             // Formatters: Array
-            Formatter.SetPreferredMimeTypeFor(typeof(Array<sbyte>), HtmlFormatter.MimeType);
-            Formatter.SetPreferredMimeTypeFor(typeof(Array<short>), HtmlFormatter.MimeType);
-            Formatter.SetPreferredMimeTypeFor(typeof(Array<int>), HtmlFormatter.MimeType);
-            Formatter.SetPreferredMimeTypeFor(typeof(Array<long>), HtmlFormatter.MimeType);
-            Formatter.SetPreferredMimeTypeFor(typeof(Array<float>), HtmlFormatter.MimeType);
-            Formatter.SetPreferredMimeTypeFor(typeof(Array<double>), HtmlFormatter.MimeType);
-            Formatter.SetPreferredMimeTypeFor(typeof(Array<fcomplex>), HtmlFormatter.MimeType);
-            Formatter.SetPreferredMimeTypeFor(typeof(Array<complex>), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(Array<sbyte>), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(Array<short>), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(Array<int>), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(Array<long>), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(Array<float>), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(Array<double>), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(Array<fcomplex>), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(Array<complex>), HtmlFormatter.MimeType);
             Formatter.Register(new HtmlArrayFormatter());
 
             // Formatters: RetArray
-            Formatter.SetPreferredMimeTypeFor(typeof(RetArray<sbyte>), HtmlFormatter.MimeType);
-            Formatter.SetPreferredMimeTypeFor(typeof(RetArray<short>), HtmlFormatter.MimeType);
-            Formatter.SetPreferredMimeTypeFor(typeof(RetArray<int>), HtmlFormatter.MimeType);
-            Formatter.SetPreferredMimeTypeFor(typeof(RetArray<long>), HtmlFormatter.MimeType);
-            Formatter.SetPreferredMimeTypeFor(typeof(RetArray<float>), HtmlFormatter.MimeType);
-            Formatter.SetPreferredMimeTypeFor(typeof(RetArray<double>), HtmlFormatter.MimeType);
-            Formatter.SetPreferredMimeTypeFor(typeof(RetArray<fcomplex>), HtmlFormatter.MimeType);
-            Formatter.SetPreferredMimeTypeFor(typeof(RetArray<complex>), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(RetArray<sbyte>), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(RetArray<short>), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(RetArray<int>), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(RetArray<long>), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(RetArray<float>), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(RetArray<double>), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(RetArray<fcomplex>), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(RetArray<complex>), HtmlFormatter.MimeType);
             Formatter.Register(new HtmlRetArrayFormatter());
 
             // Formatters: SceneGraph
-            Formatter.SetPreferredMimeTypeFor(typeof(Bitmap), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(Bitmap), HtmlFormatter.MimeType);
             Formatter.Register(new HtmlBitmapFormatter());
-            Formatter.SetPreferredMimeTypeFor(typeof(Scene), HtmlFormatter.MimeType);
+            Formatter.SetPreferredMimeTypesFor(typeof(Scene), HtmlFormatter.MimeType);
             Formatter.Register(new HtmlSceneFormatter());
 
             if (KernelInvocationContext.Current is { } context)
