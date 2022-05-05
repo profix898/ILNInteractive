@@ -11,7 +11,8 @@ namespace ILNInteractive.QuickPlot
     public static partial class QuickPlot
     {
         public static Scene Plot(InArray<float> x, InArray<float> y1, InArray<float> y2 = null, InArray<float> y3 = null, InArray<float> y4 = null,
-                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, IEnumerable<string> labels = null)
+                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, string xAxisLabel = null, string yAxisLabel = null,
+                                 IEnumerable<string> labels = null)
         {
             using (Scope.Enter(x, y1, y2, y3, y4))
             {
@@ -34,19 +35,23 @@ namespace ILNInteractive.QuickPlot
                 foreach (var y in yArgs)
                     plotCube.Add(new LinePlot(x, y));
 
+                plotCube.ScaleModes.XAxisScale = xAxisScale;
+                plotCube.ScaleModes.YAxisScale = yAxisScale;
+
+                plotCube.Axes.XAxis.Label.Text = String.IsNullOrEmpty(xAxisLabel) ? "X Axis" : xAxisLabel;
+                plotCube.Axes.YAxis.Label.Text = String.IsNullOrEmpty(yAxisLabel) ? "Y Axis" : yAxisLabel;
+
                 var legendLabels = labels?.Where(label => label != null).ToArray();
                 if (legendLabels != null && legendLabels.Length > 0)
                     plotCube.Add(new Legend(legendLabels));
-
-                plotCube.ScaleModes.XAxisScale = xAxisScale;
-                plotCube.ScaleModes.YAxisScale = yAxisScale;
 
                 return scene;
             }
         }
 
         public static Scene Plot(InArray<double> x, InArray<double> y1, InArray<double> y2 = null, InArray<double> y3 = null, InArray<double> y4 = null,
-                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, IEnumerable<string> labels = null)
+                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, string xAxisLabel = null, string yAxisLabel = null,
+                                 IEnumerable<string> labels = null)
         {
             using (Scope.Enter(x, y1, y2, y3, y4))
             {
@@ -69,18 +74,22 @@ namespace ILNInteractive.QuickPlot
                 foreach (var y in yArgs)
                     plotCube.Add(new LinePlot(x, y));
 
+                plotCube.ScaleModes.XAxisScale = xAxisScale;
+                plotCube.ScaleModes.YAxisScale = yAxisScale;
+
+                plotCube.Axes.XAxis.Label.Text = String.IsNullOrEmpty(xAxisLabel) ? "X Axis" : xAxisLabel;
+                plotCube.Axes.YAxis.Label.Text = String.IsNullOrEmpty(yAxisLabel) ? "Y Axis" : yAxisLabel;
+
                 var legendLabels = labels?.Where(label => label != null).ToArray();
                 if (legendLabels != null && legendLabels.Length > 0)
                     plotCube.Add(new Legend(legendLabels));
-
-                plotCube.ScaleModes.XAxisScale = xAxisScale;
-                plotCube.ScaleModes.YAxisScale = yAxisScale;
 
                 return scene;
             }
         }
 
-        public static Scene Plot(InArray<float> positions, AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, IEnumerable<string> labels = null)
+        public static Scene Plot(InArray<float> positions, AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear,
+                                 string xAxisLabel = null, string yAxisLabel = null, IEnumerable<string> labels = null)
         {
             using (Scope.Enter(positions))
             {
@@ -91,18 +100,22 @@ namespace ILNInteractive.QuickPlot
                 var plotCube = scene.Add(new PlotCube());
                 plotCube.Add(new LinePlot(positions));
 
+                plotCube.ScaleModes.XAxisScale = xAxisScale;
+                plotCube.ScaleModes.YAxisScale = yAxisScale;
+
+                plotCube.Axes.XAxis.Label.Text = String.IsNullOrEmpty(xAxisLabel) ? "X Axis" : xAxisLabel;
+                plotCube.Axes.YAxis.Label.Text = String.IsNullOrEmpty(yAxisLabel) ? "Y Axis" : yAxisLabel;
+
                 var legendLabels = labels?.Where(label => label != null).ToArray();
                 if (legendLabels != null && legendLabels.Length > 0)
                     plotCube.Add(new Legend(legendLabels));
-
-                plotCube.ScaleModes.XAxisScale = xAxisScale;
-                plotCube.ScaleModes.YAxisScale = yAxisScale;
 
                 return scene;
             }
         }
 
-        public static Scene Plot(InArray<double> positions, AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, IEnumerable<string> labels = null)
+        public static Scene Plot(InArray<double> positions, AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear,
+                                 string xAxisLabel = null, string yAxisLabel = null, IEnumerable<string> labels = null)
         {
             using (Scope.Enter(positions))
             {
@@ -113,12 +126,15 @@ namespace ILNInteractive.QuickPlot
                 var plotCube = scene.Add(new PlotCube());
                 plotCube.Add(new LinePlot(tosingle(positions)));
 
+                plotCube.ScaleModes.XAxisScale = xAxisScale;
+                plotCube.ScaleModes.YAxisScale = yAxisScale;
+
+                plotCube.Axes.XAxis.Label.Text = String.IsNullOrEmpty(xAxisLabel) ? "X Axis" : xAxisLabel;
+                plotCube.Axes.YAxis.Label.Text = String.IsNullOrEmpty(yAxisLabel) ? "Y Axis" : yAxisLabel;
+
                 var legendLabels = labels?.Where(label => label != null).ToArray();
                 if (legendLabels != null && legendLabels.Length > 0)
                     plotCube.Add(new Legend(legendLabels));
-
-                plotCube.ScaleModes.XAxisScale = xAxisScale;
-                plotCube.ScaleModes.YAxisScale = yAxisScale;
 
                 return scene;
             }

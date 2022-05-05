@@ -33,7 +33,8 @@ namespace ILNInteractive.QuickPlot
         }
 
         public static Scene Surf(InArray<double> ZXYPositions, InArray<float> C = null,
-                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, AxisScale zAxisScale = AxisScale.Linear)
+                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, AxisScale zAxisScale = AxisScale.Linear,
+                                 string xAxisLabel = null, string yAxisLabel = null, string zAxisLabel = null)
         {
             using (Scope.Enter(ZXYPositions, C))
             {
@@ -51,12 +52,17 @@ namespace ILNInteractive.QuickPlot
                 plotCube.ScaleModes.YAxisScale = yAxisScale;
                 plotCube.ScaleModes.ZAxisScale = zAxisScale;
 
+                plotCube.Axes.XAxis.Label.Text = String.IsNullOrEmpty(xAxisLabel) ? "X Axis" : xAxisLabel;
+                plotCube.Axes.YAxis.Label.Text = String.IsNullOrEmpty(yAxisLabel) ? "Y Axis" : yAxisLabel;
+                plotCube.Axes.ZAxis.Label.Text = String.IsNullOrEmpty(zAxisLabel) ? "Z Axis" : zAxisLabel;
+
                 return scene;
             }
         }
 
         public static Scene Surf(InArray<float> Z, InArray<float> X, InArray<float> Y, InArray<float> C = null,
-                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, AxisScale zAxisScale = AxisScale.Linear)
+                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, AxisScale zAxisScale = AxisScale.Linear,
+                                 string xAxisLabel = null, string yAxisLabel = null, string zAxisLabel = null)
         {
             using (Scope.Enter(Z, X, Y, C))
             {
@@ -76,12 +82,17 @@ namespace ILNInteractive.QuickPlot
                 plotCube.ScaleModes.YAxisScale = yAxisScale;
                 plotCube.ScaleModes.ZAxisScale = zAxisScale;
 
+                plotCube.Axes.XAxis.Label.Text = String.IsNullOrEmpty(xAxisLabel) ? "X Axis" : xAxisLabel;
+                plotCube.Axes.YAxis.Label.Text = String.IsNullOrEmpty(yAxisLabel) ? "Y Axis" : yAxisLabel;
+                plotCube.Axes.ZAxis.Label.Text = String.IsNullOrEmpty(zAxisLabel) ? "Z Axis" : zAxisLabel;
+
                 return scene;
             }
         }
 
         public static Scene Surf(InArray<double> Z, InArray<double> X, InArray<double> Y, InArray<float> C = null,
-                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, AxisScale zAxisScale = AxisScale.Linear)
+                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, AxisScale zAxisScale = AxisScale.Linear,
+                                 string xAxisLabel = null, string yAxisLabel = null, string zAxisLabel = null)
         {
             using (Scope.Enter(Z, X, Y, C))
             {
@@ -101,13 +112,18 @@ namespace ILNInteractive.QuickPlot
                 plotCube.ScaleModes.YAxisScale = yAxisScale;
                 plotCube.ScaleModes.ZAxisScale = zAxisScale;
 
+                plotCube.Axes.XAxis.Label.Text = String.IsNullOrEmpty(xAxisLabel) ? "X Axis" : xAxisLabel;
+                plotCube.Axes.YAxis.Label.Text = String.IsNullOrEmpty(yAxisLabel) ? "Y Axis" : yAxisLabel;
+                plotCube.Axes.ZAxis.Label.Text = String.IsNullOrEmpty(zAxisLabel) ? "Z Axis" : zAxisLabel;
+
                 return scene;
             }
         }
 
         public static Scene Surf(Func<float, float, float> ZFunc, float xmin = -10f, float xmax = 10f, int xlen = 50, float ymin = -10f, float ymax = 10f, int ylen = 50,
                                  Func<float, float, float> CFunc = null,
-                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, AxisScale zAxisScale = AxisScale.Linear)
+                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, AxisScale zAxisScale = AxisScale.Linear,
+                                 string xAxisLabel = null, string yAxisLabel = null, string zAxisLabel = null)
         {
             var scene = new Scene();
             var plotCube = scene.Add(new PlotCube());
@@ -118,12 +134,17 @@ namespace ILNInteractive.QuickPlot
             plotCube.ScaleModes.YAxisScale = yAxisScale;
             plotCube.ScaleModes.ZAxisScale = zAxisScale;
 
+            plotCube.Axes.XAxis.Label.Text = String.IsNullOrEmpty(xAxisLabel) ? "X Axis" : xAxisLabel;
+            plotCube.Axes.YAxis.Label.Text = String.IsNullOrEmpty(yAxisLabel) ? "Y Axis" : yAxisLabel;
+            plotCube.Axes.ZAxis.Label.Text = String.IsNullOrEmpty(zAxisLabel) ? "Z Axis" : zAxisLabel;
+
             return scene;
         }
 
         public static Scene Surf(Func<double, double, double> ZFunc, double xmin = -10d, double xmax = 10d, int xlen = 50, double ymin = -10d, double ymax = 10d, int ylen = 50,
                                  Func<float, float, float> CFunc = null,
-                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, AxisScale zAxisScale = AxisScale.Linear)
+                                 AxisScale xAxisScale = AxisScale.Linear, AxisScale yAxisScale = AxisScale.Linear, AxisScale zAxisScale = AxisScale.Linear,
+                                 string xAxisLabel = null, string yAxisLabel = null, string zAxisLabel = null)
         {
             var scene = new Scene();
             var plotCube = scene.Add(new PlotCube());
@@ -135,6 +156,10 @@ namespace ILNInteractive.QuickPlot
             plotCube.ScaleModes.XAxisScale = xAxisScale;
             plotCube.ScaleModes.YAxisScale = yAxisScale;
             plotCube.ScaleModes.ZAxisScale = zAxisScale;
+
+            plotCube.Axes.XAxis.Label.Text = String.IsNullOrEmpty(xAxisLabel) ? "X Axis" : xAxisLabel;
+            plotCube.Axes.YAxis.Label.Text = String.IsNullOrEmpty(yAxisLabel) ? "Y Axis" : yAxisLabel;
+            plotCube.Axes.ZAxis.Label.Text = String.IsNullOrEmpty(zAxisLabel) ? "Z Axis" : zAxisLabel;
 
             return scene;
         }
