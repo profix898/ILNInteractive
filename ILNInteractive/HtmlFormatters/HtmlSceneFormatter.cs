@@ -2,7 +2,6 @@
 using System.IO;
 using ILN2XPlot;
 using ILNumerics.Drawing;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.DotNet.Interactive.Formatting;
 using Scene = ILNumerics.Drawing.Scene;
 using static ILNInteractive.HtmlContentUtility;
