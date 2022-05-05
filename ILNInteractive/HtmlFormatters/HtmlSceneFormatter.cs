@@ -21,6 +21,8 @@ namespace ILNInteractive.HtmlFormatters
             if (scene == null)
                 return false;
 
+            scene.Configure();
+
             switch (ILNInteractiveOptions.GraphMode)
             {
                 case ILNGraphMode.Png:
