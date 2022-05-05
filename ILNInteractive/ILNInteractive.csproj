@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Version>0.9.0</Version>
+    <Version>0.9.2</Version>
     <FileVersion>$(Version)</FileVersion>
     <AssemblyVersion>$(Version)</AssemblyVersion>
-    <Copyright>Copyright © 2020-2021 Thilo Viereck</Copyright>
+    <Copyright>Copyright © 2020-2022 Thilo Viereck</Copyright>
     <RepositoryUrl>https://github.com/profix898/ILNInteractive</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Authors>Thilo Viereck</Authors>
@@ -18,17 +18,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ILNumerics.Computing" Version="6.0.124" />
-    <PackageReference Include="ILNumerics.Drawing" Version="6.0.124" />
-    <PackageReference Include="ILN2XPlot" Version="0.7.0" />
-    <PackageReference Include="Microsoft.DotNet.Interactive.CSharp" Version="1.0.0-beta.21559.2" />
-    <PackageReference Include="Microsoft.DotNet.Interactive.Formatting" Version="1.0.0-beta.21559.2" />
-    <PackageReference Include="Microsoft.CodeAnalysis" Version="4.0.1" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.0.1" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Scripting" Version="4.0.1" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.0.1" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.0.1" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Features" Version="4.0.1" />
+    <PackageReference Include="ILNumerics.Computing" Version="6.0.127" />
+    <PackageReference Include="ILNumerics.Drawing" Version="6.0.127" />
+    <PackageReference Include="ILN2XPlot" Version="0.8.0" />
+    <PackageReference Include="Microsoft.DotNet.Interactive.CSharp" Version="1.0.0-beta.22175.2" />
+    <PackageReference Include="Microsoft.DotNet.Interactive.Formatting" Version="1.0.0-beta.22175.2" />
+    <PackageReference Include="Microsoft.DotNet.Interactive.Documents" Version="1.0.0-beta.22175.2" />
+    <PackageReference Include="Microsoft.CodeAnalysis" Version="4.1.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.1.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Scripting" Version="4.1.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.1.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.1.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Features" Version="4.1.0" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
     <PackageReference Include="XPlot.Plotly.Interactive" Version="4.0.6" />
   </ItemGroup>
