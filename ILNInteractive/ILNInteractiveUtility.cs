@@ -32,7 +32,7 @@ namespace ILNInteractive
                 throw new ArgumentNullException(nameof(filePath));
 
             filePath = Path.ChangeExtension(filePath, ".tikz");
-            graphSize ??= ILNInteractiveOptions.GraphSize;
+            graphSize ??= new Point(ILNInteractiveOptions.GraphSize.X / 10, ILNInteractiveOptions.GraphSize.Y / 10);
 
             using var fileStream = new FileStream(filePath, FileMode.Create);
             using var streamWriter = new StreamWriter(fileStream);
