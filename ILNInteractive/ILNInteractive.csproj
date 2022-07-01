@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Version>0.9.20</Version>
+    <Version>0.9.30</Version>
     <FileVersion>$(Version)</FileVersion>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <Copyright>Copyright © 2020-2022 Thilo Viereck</Copyright>
@@ -19,12 +19,12 @@
 
   <ItemGroup>
     <PackageReference Include="ILN2Tikz" Version="1.8.0" />
-    <PackageReference Include="ILNumerics.Computing" Version="6.0.127" />
-    <PackageReference Include="ILNumerics.Drawing" Version="6.0.127" />
+    <PackageReference Include="ILNumerics.Computing" Version="6.0.148" />
+    <PackageReference Include="ILNumerics.Drawing" Version="6.0.148" />
     <PackageReference Include="ILN2XPlot" Version="0.8.0" />
-    <PackageReference Include="Microsoft.DotNet.Interactive.CSharp" Version="1.0.0-beta.21559.2" />
-    <PackageReference Include="Microsoft.DotNet.Interactive.Formatting" Version="1.0.0-beta.21559.2" />
-    <PackageReference Include="Microsoft.DotNet.Interactive.Documents" Version="1.0.0-beta.21559.2" />
+    <PackageReference Include="Microsoft.DotNet.Interactive.CSharp" Version="1.0.0-beta.22314.1" />
+    <PackageReference Include="Microsoft.DotNet.Interactive.Formatting" Version="1.0.0-beta.22314.1" />
+    <PackageReference Include="Microsoft.DotNet.Interactive.Documents" Version="1.0.0-beta.22314.1" />
     <PackageReference Include="Microsoft.CodeAnalysis" Version="4.2.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.2.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.Scripting" Version="4.2.0" />
