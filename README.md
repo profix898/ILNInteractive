@@ -17,5 +17,4 @@ ILNInteractive is licensed under the terms of the MIT license (<https://opensour
 - In the context of ILNInteractive and within .NET Interactive all features of ILNumerics can be used free of charge (incl. commercial use).
 
 ### Disclaimer
-ILNInteractive is in an early stage of development and should be
-considered experimental.
+ILNInteractive is in an early stage of development and should be considered experimental.

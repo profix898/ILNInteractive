@@ -18,7 +18,7 @@ namespace ILNInteractive
         public async Task OnLoadAsync(Kernel kernel)
         {
             // Using Statements
-            var kernelCSharp = (CSharpKernel) kernel.FindKernel("csharp");
+            var kernelCSharp = (CSharpKernel) kernel.FindKernelByName("csharp");
             await kernelCSharp.SubmitCodeAsync("using ILNInteractive;");
             await kernelCSharp.SubmitCodeAsync("using ILNumerics;");
             await kernelCSharp.SubmitCodeAsync("using ILNumerics.Drawing;");
