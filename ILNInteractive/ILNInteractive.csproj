@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <Version>0.9.52</Version>
+    <Version>0.9.55</Version>
     <FileVersion>$(Version)</FileVersion>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <Copyright>Copyright © 2020-2023 Thilo Viereck</Copyright>
@@ -20,14 +20,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ILN2Tikz" Version="1.10.0" />
+    <PackageReference Include="ILN2Tikz" Version="1.11.0" />
     <PackageReference Include="ILN2XPlot" Version="0.9.0" />
     <PackageReference Include="XPlot.Plotly.Interactive" Version="4.0.6" />
     <PackageReference Include="ILNumerics.Computing" Version="6.0.148" />
     <PackageReference Include="ILNumerics.Drawing" Version="6.0.148" />
-    <PackageReference Include="Microsoft.DotNet.Interactive.CSharp" Version="1.0.0-beta.23101.1" />
-    <PackageReference Include="Microsoft.DotNet.Interactive.Formatting" Version="1.0.0-beta.23101.1" />
-    <PackageReference Include="Microsoft.DotNet.Interactive.Documents" Version="1.0.0-beta.23101.1" />
+    <PackageReference Include="Microsoft.DotNet.Interactive.CSharp" Version="1.0.0-beta.23102.2" />
+    <PackageReference Include="Microsoft.DotNet.Interactive.PowerShell" Version="1.0.0-beta.23102.2" />
+    <PackageReference Include="Microsoft.DotNet.Interactive.Http" Version="1.0.0-beta.23102.2" />
+    <PackageReference Include="Microsoft.DotNet.Interactive.Formatting" Version="1.0.0-beta.23102.2" />
+    <PackageReference Include="Microsoft.DotNet.Interactive.Documents" Version="1.0.0-beta.23102.2" />
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
   </ItemGroup>
 
