@@ -1,6 +1,7 @@
 ILNInteractive  
 (= [.NET Interactive](https://github.com/dotnet/interactive) + [ILNumerics](https://ilnumerics.net/) + [ILN2XPlot](https://github.com/profix898/ILN2XPlot))
 ==========
+[![Nuget](https://img.shields.io/nuget/v/ILNInteractive?style=flat-square&logo=nuget&color=blue)](https://www.nuget.org/packages/ILNInteractive)
 
 ILNInteractive provides:
 - Support for ILNumerics (https://ilnumerics.net/) in .NET Interactive (https://github.com/dotnet/interactive)
